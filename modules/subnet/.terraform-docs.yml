@@ -1,0 +1,25 @@
+formatter: ""
+version: ""
+header-from: main.tf
+footer-from: ""
+output:
+  file: ""
+  mode: replace
+
+content: |-
+  # Subnet Module
+  ## Description
+  Creates a subnet and associates it with a provided list of Route Tables
+ 
+  ### Notes
+  The reason this module doesn't create the route table for the subnet it's creating. This is for 2 reasons
+  1. You want to associate a single route table with many subnets
+  2. You want to associate multiple route tables with the subnet this module is creating
+  
+  {{ .Providers }}
+  
+  {{ .Inputs }}
+  
+  {{ .Outputs }}
+  
+  {{ .Resources }}

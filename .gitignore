@@ -1,0 +1,5 @@
+workspace/.terraform*
+workspace/.terraform.lock.hcl
+workspace/.terraform.tfstate.lock.info
+workspace/terraform.tfstate.backup
+workspace/terraform.tfstate
