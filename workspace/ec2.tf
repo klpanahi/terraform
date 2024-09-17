@@ -9,10 +9,11 @@ module "admin_node" {
 }
 
 module "worker_node" {
-  source          = "../modules/aws_ubuntu_ec2"
-  count           = var.azs_per_vpc - 1
-  instance_name   = "Worker-EC2-${count.index}"
-  subnet          = module.compute_subnet[(count.index + 1) % var.azs_per_vpc].subnet_id
-  security_groups = [aws_security_group.allow_ssh.id]
-  key_name        = var.ec2_ssh_key_name
+  source           = "../modules/aws_ubuntu_ec2"
+  count            = var.azs_per_vpc - 1
+  instance_name    = "Worker-EC2-${count.index}"
+  subnet           = module.compute_subnet[(count.index + 1) % var.azs_per_vpc].subnet_id
+  security_groups  = [aws_security_group.allow_ssh.id]
+  key_name         = var.ec2_ssh_key_name
+  assign_public_ip = true
 }
